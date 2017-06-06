@@ -7,27 +7,24 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //+ Declaración de las variables
     private LoginButton login_button;
     private CallbackManager callbackManager;
     private TextView txtInfo;
@@ -35,14 +32,14 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private ProgressBar progressBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //+ Se inicializa los controles.
+        //+ Se inicializa los controles para contar con la integración con Fcebook.
         iniControls();
+
         //+ Se obtiene la integración con Facebook.
         loginWithFB();
 
@@ -62,17 +59,18 @@ public class LoginActivity extends AppCompatActivity {
         };
     }
 
+    //+ Se inicializan los controles a utilizar para la integración con Facebook.
     private void iniControls () {
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
+        //+ Se declara los métodos principales de la integración con FB.
         callbackManager = CallbackManager.Factory.create();
-        txtInfo = (TextView) findViewById(R.id.txtInfoDet);
         login_button = (LoginButton) findViewById(R.id.login_Button);
 
-        //+ Se solicita ermiso para el email en Facebook.
+        //+ Se solicita permiso para el email en Facebook.
         login_button.setReadPermissions(Arrays.asList("email"));
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        txtInfo = (TextView) findViewById(R.id.txtInfoDet);
     }
 
     //+ Se obtiene la integración con Facebook: Login.
@@ -80,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
         login_button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // App code
                 txtInfo.setText("¡Inicio de sesión exitoso!: " + loginResult.getAccessToken().toString());
                 //+ Se obtiene el Token de Facebook para pasárselo a Firebase.
                 handleFacebookAccessToken(loginResult.getAccessToken());
@@ -89,14 +86,12 @@ public class LoginActivity extends AppCompatActivity {
             //+ Si se cancela el login de Facebook.
             @Override
             public void onCancel() {
-                // App code
                 txtInfo.setText("¡Inicio de sesión cancelado!");
             }
 
             //+ Si existe algún error en el login de Facebook.
             @Override
             public void onError(FacebookException exception) {
-                // App code
                 txtInfo.setText("¡Inicio de sesión NO exitoso!: " + exception.getMessage().toString());
             }
         });
@@ -135,8 +130,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
-
 
     //+ Método para activar el Listener del Firebase.
     @Override

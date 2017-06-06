@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Bienvenido"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/txtName"
@@ -22,7 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Nombre" />
+        android:text="Nombre"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtMail"
@@ -30,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtName"
         android:layout_centerHorizontal="true"
-        android:text="eMail" />
+        android:text="eMail"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtUID"
@@ -38,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtMail"
         android:layout_centerHorizontal="true"
-        android:text="UID" />
+        android:text="UID"
+        android:textSize="18sp" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/ad_view"
@@ -58,7 +62,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="12dp"
         android:text="Espere por publicidad ..."
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="12sp" />
 
     <Button
         style="@style/Widget.AppCompat.Button.Colored"
