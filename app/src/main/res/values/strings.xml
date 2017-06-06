@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">C12_EF_FABV</string>
+    <string name="facebook_app_id">671705433036696</string>
+    <string name="fb_login_protocol_scheme">fb671705433036696</string>
+    <string name="id_banner">ca-app-pub-4302504334301946/3961857916</string>
+    <string name="cancel_login">Se canceló la operación</string>
+    <string name="error_login">Ocurrió un error al ingresar</string>
+    <string name="logout">Cerrar sesión</string>
+</resources>
