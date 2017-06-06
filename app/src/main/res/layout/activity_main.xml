@@ -14,8 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Bienvenido"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/txtName"
@@ -54,8 +53,10 @@
         android:id="@+id/txtInfoPie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ad_view"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
         android:text="Espere por publicidad ..."
         android:textAlignment="center" />
 

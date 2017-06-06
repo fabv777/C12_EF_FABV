@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtName;
     private TextView txtMail;
     private TextView txtUDI;
+    private TextView txtInfoPie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         txtName = (TextView) findViewById(R.id.txtName);
         txtMail = (TextView) findViewById(R.id.txtMail);
         txtUDI = (TextView) findViewById(R.id.txtUID);
+        txtInfoPie = (TextView) findViewById(R.id.txtInfoPie);
 
         //+ Declaración para el manejo de la publicidad.
         adView = (AdView) findViewById(R.id.ad_view);
@@ -50,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
             txtMail.setText(mail);
             txtUDI.setText(uid);
 
+
             adView.loadAd(adRequest);
+
         } else {
             goLoginScreen();
         }
@@ -89,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     //+ Para cerrar sesión desde el botón.
     public void logout(View view) {
-        Toast.makeText(MainActivity.this, "logout", Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, "logout", Toast.LENGTH_LONG).show();
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
         goLoginScreen();
